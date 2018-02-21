@@ -1,7 +1,13 @@
 #pragma once
 #include <cstdint>
 
-typedef uint32_t Marker;
+// for better readability
+// size_type represents size
+// ptr represents pointer location
+// ptrdiff represents pointer location difference
+typedef uint32_t size_type;
+typedef uintptr_t ptr_type;
+typedef ptrdiff_t ptrdiff_type;
 
 class StackAllocator 
 {
@@ -9,23 +15,22 @@ public:
 	// Stack marker: Represents the current top of
 	// stack, You can only roll back to a marker, not to
 	// arbitary locations within the stack
-	StackAllocator(uint32_t stackSize_bytes);
 
 	// Allocator cannot be coppied
 	StackAllocator(const StackAllocator& allocator) = delete;
 	StackAllocator& operator=(const StackAllocator& allocator) = delete;
 
 	// Constructs a stack allocator with the given total size
-	explicit StackAllocator(uint32_t stackSize_bytes);
+	explicit StackAllocator(const size_type stackSize_bytes);
 
 	// Allocates a new block of the given size from stack
-	void* alloc(const uint32_t size_bytes, const uint32_t alignment = 16);
+	void* alloc(const size_type size_bytes, const size_type alignment = 16);
 
 	// Returns a marker to the current stack top
-	Marker getMarker();
+	size_type getMarker() const;
 
 	// Rolls the stack back to a previous marker
-	void freeToMarker(Marker marker);
+	void freeToMarker(size_type marker);
 
 	// Clears the entire stack (rolls the stack back to zero)
 	void clear();
@@ -33,8 +38,8 @@ public:
 private:
 	void* start_ptr;
 
-	Marker current_marker;
+	ptr_type current_marker;
 
-	uint32_t stack_size;
+	size_type stack_size;
 };
 

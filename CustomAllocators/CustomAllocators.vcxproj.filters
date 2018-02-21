@@ -30,5 +30,8 @@
     <ClInclude Include="StackAllocator.h">
       <Filter>Headers</Filter>
     </ClInclude>
+    <ClInclude Include="Utility.h">
+      <Filter>Headers</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
