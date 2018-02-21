@@ -11,7 +11,17 @@ StackAllocator::StackAllocator(const size_type stackSize_bytes)
 	start_ptr = malloc(stackSize_bytes);
 	stack_size = stackSize_bytes;
 	current_marker = 0;
+
 }
+
+StackAllocator::~StackAllocator()
+{
+	if (start_ptr != nullptr) {
+		free(start_ptr);
+	}
+	start_ptr = nullptr;
+}
+
 
 void * StackAllocator::alloc(const size_type size_bytes, const size_type alignment)
 {
@@ -72,4 +82,5 @@ void StackAllocator::freeToMarker(size_type marker)
 
 void StackAllocator::clear()
 {
+	current_marker = 0;
 }

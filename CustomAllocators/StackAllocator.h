@@ -23,6 +23,9 @@ public:
 	// Constructs a stack allocator with the given total size
 	explicit StackAllocator(const size_type stackSize_bytes);
 
+	// Destructor for releasing memory back to OS
+	~StackAllocator();
+
 	// Allocates a new block of the given size from stack
 	void* alloc(const size_type size_bytes, const size_type alignment = 16);
 
@@ -36,10 +39,13 @@ public:
 	void clear();
 
 private:
+	// Start location of stack allocator
 	void* start_ptr;
 
+	// Stack top
 	ptr_type current_marker;
 
+	// Total stack size/ability
 	size_type stack_size;
 };
 
