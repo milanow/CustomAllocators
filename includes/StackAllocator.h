@@ -1,3 +1,8 @@
+/* Created 02/19/2018
+Author: Tianhe Wang
+Email: wthvictor@gmail.com
+*/
+
 #pragma once
 #include <cstdint>
 
@@ -37,7 +42,8 @@ public:
 	// Allocates a new block of the given size from stack
 	void* alloc(const size_type size_bytes, const size_type alignment = 16);
 
-	// Free a pointer
+	// Free a pointer. Note normally we don't need supporting this function
+	// We use marker to control our stack allocator
 	void free(void* ptr);
 
 	// Returns a marker to the current stack top
@@ -49,6 +55,7 @@ public:
 	// Clears the entire stack (rolls the stack back to zero)
 	void clear();
 
+	// TODO: delete later, just for debugging info
 	void* startPointer() const {
 		return start_ptr;
 	}
