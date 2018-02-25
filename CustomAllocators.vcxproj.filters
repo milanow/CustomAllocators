@@ -30,7 +30,13 @@
     <ClInclude Include="includes\Utility.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="DoubleEndedStackAllocator.h">
+    <ClInclude Include="includes\DoubleEndedStackAllocator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\PoolAllocator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\LinkedList.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -47,7 +53,10 @@
     <ClCompile Include="src\StackAllocator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="DoubleEndedStackAllocator.cpp">
+    <ClCompile Include="src\DoubleEndedStackAllocator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PoolAllocator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

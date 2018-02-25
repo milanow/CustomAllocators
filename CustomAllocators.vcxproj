@@ -144,8 +144,10 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DoubleEndedStackAllocator.h" />
     <ClInclude Include="includes\Allocator.h" />
+    <ClInclude Include="includes\DoubleEndedStackAllocator.h" />
+    <ClInclude Include="includes\LinkedList.h" />
+    <ClInclude Include="includes\PoolAllocator.h" />
     <ClInclude Include="includes\StackAllocator.h" />
     <ClInclude Include="includes\Utility.h" />
     <ClInclude Include="stdafx.h" />
@@ -153,8 +155,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CustomAllocators.cpp" />
-    <ClCompile Include="DoubleEndedStackAllocator.cpp" />
     <ClCompile Include="src\Allocator.cpp" />
+    <ClCompile Include="src\DoubleEndedStackAllocator.cpp" />
+    <ClCompile Include="src\PoolAllocator.cpp" />
     <ClCompile Include="src\StackAllocator.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
