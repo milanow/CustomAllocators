@@ -35,7 +35,8 @@ public:
 
 	// Destructor
 	~PoolAllocator();
-
+	
+	// Get a new instance from the pool
 	T* alloc();
 
 	void free(void* ptr);

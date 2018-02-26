@@ -38,7 +38,7 @@ T * PoolAllocator<T>::alloc()
 		return nullptr;
 	}
 
-	return nullptr;
+	return reinterpret_cast<T*>(freeNode);
 }
 
 template<class T>
