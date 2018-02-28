@@ -1,41 +1,44 @@
-/* Created 02/23/2018
+/* Created 02/26/2018
 Author: Tianhe Wang
 Email: wthvictor@gmail.com
 */
 
 #pragma once
 
-/* This is an explicit linked list implemented for supporting PoolAllocator's free list
-   An explicit linked list is better than inplicit linked list here for better controlling
-   over nodes' life time.
+#include <assert.h>
 
-   To support free list, the linked list behaves like a stack, each time inserting/pushing
-   a new node, the new node becomes head. Each time poping out a node from list, the head 
-   is the node to pop out
+/* This is an explicit linked list implemented for supporting FreeListAllocator's free list
+An explicit linked list is better than inplicit linked list here for better controlling
+over nodes' life time.
 */
 
 template<class T>
 class LinkedList {
 public:
-	struct Node {
-		// val can be ignore here if it is only designed for PoolAllocator
+	struct Node{
 		T val;
 		Node* next;
 		Node(T value) : val(value), next(nullptr) {}
 	};
 
-	// Initialize with a new head node
+	LinkedList();
+
 	LinkedList(Node* headNode);
 
-	// Add a node to head
-	void push(Node* newNode);
+	// No need to have destructor, because it is FreeListAllocator that handles its lifetimes
 
-	// Pop head as node
-	Node* pop();
+	void insert(Node* prevNode, Node* newNode);
 
-private:
+	void remove(Node* prevNode, Node* deleteNode);
+
 	Node* head;
 };
+
+template<class T>
+inline LinkedList<T>::LinkedList()
+{
+	head = nullptr;
+}
 
 template<class T>
 inline LinkedList<T>::LinkedList(Node * headNode)
@@ -44,15 +47,36 @@ inline LinkedList<T>::LinkedList(Node * headNode)
 }
 
 template<class T>
-inline void LinkedList<T>::push(Node * newNode)
+void LinkedList<T>::insert(Node * prevNode, Node * newNode)
 {
-	newNode->next = head;
-	head = newNode;
+	// newNode is the head of linkedlist
+	if (!prevNode) {
+		newNode->next = head;
+		head = newNode;
+	}
+	else {
+		// this is the last node of linkedlist
+		if (prevNode->next == nullptr) {
+			prevNode->next = newNode;
+			newNode->next = nullptr;
+		}
+		else {
+			newNode->next = prevNode->next;
+			prevNode->next = newNode;
+		}
+	}
 }
 
 template<class T>
-inline Node * LinkedList<T>::pop()
+void LinkedList<T>::remove(Node * prevNode, Node * deleteNode)
 {
-	Node* node = head;
-	head = head->next;
+	// delete node shouldn't be nullptr
+	assert(deleteNode != nullptr);
+
+	if (!prevNode) {
+		head = deleteNode->next;
+	}
+	else {
+		prevNode->next = deleteNode->next;
+	}
 }

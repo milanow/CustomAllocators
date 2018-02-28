@@ -11,7 +11,7 @@ PoolAllocator<T>::PoolAllocator(const size_type numberOfElements)
 	// In general, the pool_size_bytes won't be larger than an unsigned int, so no need to check here
 	pool_size_bytes = pool_size * chunk_size;
 	start_ptr = malloc(pool_size_bytes);
-	free_list = LinkedList<FreeHeader>(nullptr);
+	free_list = StackLinkedList<FreeHeader>(nullptr);
 
 	for (int i = 0; i < numberOfElements; i++) {
 		size_type address = reinterpret_cast<size_type>(start_ptr) + i*chunk_size;
@@ -62,7 +62,7 @@ size_type PoolAllocator<T>::capacityInBytes() const
 template<class T>
 void PoolAllocator<T>::clear()
 {
-	free_list = LinkedList<FreeHeader>(nullptr);
+	free_list = StackLinkedList<FreeHeader>(nullptr);
 
 	for (int i = 0; i < numberOfElements; i++) {
 		size_type address = reinterpret_cast<size_type>(start_ptr) + i*chunk_size;

@@ -144,28 +144,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="DoubleBufferedAllocator.h" />
+    <ClInclude Include="includes\DoubleBufferedAllocator.h" />
     <ClInclude Include="includes\DoubleEndedStackAllocator.h" />
+    <ClInclude Include="includes\FreeListAllocator.h" />
     <ClInclude Include="includes\LinkedList.h" />
+    <ClInclude Include="includes\SingleFrameAllocator.h" />
+    <ClInclude Include="includes\StackLinkedList.h" />
     <ClInclude Include="includes\PoolAllocator.h" />
     <ClInclude Include="includes\StackAllocator.h" />
     <ClInclude Include="includes\Utility.h" />
-    <ClInclude Include="SingleFrameAllocator.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="CustomAllocators.cpp" />
-    <ClCompile Include="src\Allocator.cpp" />
+    <ClCompile Include="src\CustomAllocators.cpp" />
     <ClCompile Include="src\DoubleEndedStackAllocator.cpp" />
+    <ClCompile Include="src\FreeListAllocator.cpp" />
     <ClCompile Include="src\PoolAllocator.cpp" />
     <ClCompile Include="src\StackAllocator.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

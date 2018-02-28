@@ -15,12 +15,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="stdafx.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="includes\StackAllocator.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -33,26 +27,23 @@
     <ClInclude Include="includes\PoolAllocator.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="includes\StackLinkedList.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="includes\LinkedList.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="SingleFrameAllocator.h">
+    <ClInclude Include="includes\FreeListAllocator.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="DoubleBufferedAllocator.h">
+    <ClInclude Include="includes\DoubleBufferedAllocator.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="includes\SingleFrameAllocator.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="CustomAllocators.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Allocator.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
     <ClCompile Include="src\StackAllocator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
@@ -60,6 +51,12 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="src\PoolAllocator.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CustomAllocators.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\FreeListAllocator.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

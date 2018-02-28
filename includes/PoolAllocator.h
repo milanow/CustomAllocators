@@ -5,7 +5,7 @@ Email: wthvictor@gmail.com
 
 #pragma once
 
-#include "LinkedList.h"
+#include "StackLinkedList.h"
 
 #include <cstdint>
 
@@ -61,5 +61,5 @@ private:
 	void* start_ptr;
 	
 	struct FreeHeader {};
-	LinkedList<FreeHeader> free_list;
+	StackLinkedList<FreeHeader> free_list;
 };
