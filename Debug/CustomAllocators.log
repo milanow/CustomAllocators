@@ -1,8 +1,0 @@
-﻿  StackAllocator.cpp
-d:\work\visualstudio\customallocators\includes\utility.h(22): warning C4018: “<”: 有符号/无符号不匹配
-d:\work\visualstudio\customallocators\src\stackallocator.cpp(50): warning C4838: 从“ptrdiff_type”转换到“char”需要收缩转换
-  Allocator.cpp
-  CustomAllocators.cpp
-  正在生成代码...
-  CustomAllocators.vcxproj -> D:\Work\VisualStudio\CustomAllocators\Debug\CustomAllocators.exe
-  CustomAllocators.vcxproj -> D:\Work\VisualStudio\CustomAllocators\Debug\CustomAllocators.pdb (Full PDB)
