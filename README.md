@@ -39,4 +39,4 @@ This program is developed in Visual Studio 2015, simply click '.sln' file to ope
 * **Double Buffered Allocator**: Different with Single Frame Allocator, it has two stack allocators. One serves as an allocator that is used in thie frame, the other allocator store the game data of last game loop.
 
 ## Future Work/Under Construction
-Adding test cases/benchmark for all allocators.
+Adding test cases/benchmark for all allocators. Remove redundant VS project files.
