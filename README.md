@@ -1,5 +1,4 @@
 # CustomAllocators
----
 ## Introduction
 A series of custom allocators implementation, representing different ways of using memory.
 
