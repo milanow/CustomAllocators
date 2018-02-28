@@ -32,7 +32,7 @@ This program is developed in Visual Studio 2015, simply click '.sln' file to ope
 
 * **Pool Allocator**: In game there are many objects can be repeatedly used, such as every time player fires with a gun, a bullet is generated and may destroyed when hitting surface or went out of sight. In this situation we can reuse bullet instance in a pool instead of dynamically allocating/free a new bullet object repeatedly. For this type ofmemory allocation pattern, a pool allocator is often the perfect choice. 
 
-* **Single Frame Allocator**: Sometimes data we need allocate at least some temporary data during the game loop.
+* **Single Frame Allocator**: Sometimes we need allocate at least some temporary data during the game loop.
    This data is either discarded at the end of each iteration of the loop or used on the
    next frame and then discarded. 
    
